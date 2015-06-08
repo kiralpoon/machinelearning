@@ -2,8 +2,8 @@
 
 #from udacityplots import *
 import matplotlib 
-matplotlib.use('agg')
-
+# matplotlib.use('agg')
+matplotlib.use('Qt4Agg')
 import matplotlib.pyplot as plt
 import pylab as pl
 import numpy as np

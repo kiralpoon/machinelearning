@@ -6,9 +6,11 @@ This project will use scikitlearn and try different things
 
 **By running tools/**
 
-	python2.6 startup.py
+	python startup.py
+	or
+	ipython startup.py
 
-*The program will check if the library installed properly in the python. Since all these library support to python 2.6, but the most updated python is not 2.6, so python2.6 will be need to called specifically to compile.*
+*The program will check if the library installed properly in the python. Since all these library support to python 2.7.
 
 The startup.py will also download a data set called enron_mail_20150507.tgz.
 
