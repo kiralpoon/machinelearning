@@ -26,9 +26,23 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 
 #########################################################
-### your code goes here ###
+from sklearn.naive_bayes import GaussianNB
 
+clf = GaussianNB() #create classifer
+
+t0 = time()
+clf.fit(features_train,labels_train) #fit the classifier from the train data
+print "training time:", round(time()-t0, 3), "s"
+
+t1 = time()
+accuracy = clf.score(features_test, labels_test)
+print "predicting time:", round(time()-t1, 3), "s"
+
+print "Accuracy from GaussianNB = ", accuracy
 
 #########################################################
 
-
+#Want to figure how to print an image
+# from class_vis import prettyPicture, output_image
+# prettyPicture(clf, features_test,labels_test)
+# output_image("result.png", "png", open("result.png","rb").read())
