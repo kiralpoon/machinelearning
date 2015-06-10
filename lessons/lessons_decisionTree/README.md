@@ -9,5 +9,5 @@ This code will be using the machine learning algorithm called decision tree
 
 	#default of min_sample_split is 2 if no value is put
 
-	![Image of the decision tree output](test.png)
-	Format: ![Alt Text](url)
+![Image of the decision tree output](test.png)
+Format: ![Alt Text](url)
