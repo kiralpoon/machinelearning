@@ -24,8 +24,8 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #These lines effectively slice the training dataset down 
 #to 1% of its original size, tossing out 99% of the training data.
 
-features_train = features_train[:len(features_train)/100] 
-labels_train = labels_train[:len(labels_train)/100] 
+# features_train = features_train[:len(features_train)/100] 
+# labels_train = labels_train[:len(labels_train)/100] 
 
 #########################################################
 from class_vis import prettyPicture
@@ -38,7 +38,7 @@ import numpy as np
 #Training with a linear kernel
 #clf = SVC(C=1.0, kernel='linear', degree=3, gamma=0.0, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, random_state=None)
 #training with a rbf kernel
-clf = SVC(C=1.0, kernel='rbf', degree=3, gamma=0.0, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, random_state=None)
+clf = SVC(C=10000.0, kernel='rbf', degree=3, gamma=0.0, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, random_state=None)
 
 
 t0 = time()
@@ -52,6 +52,41 @@ acc = accuracy_score(pred, labels_test)
 print "predicting time:", round(time()-t1, 3), "s"
 
 print ("Accuracy from SVM = ", acc)
+
+
+#trying to get answer for element 10
+answer = pred[10]
+if(answer==1):
+	result = "Chris"
+else:
+	result = "Sara"
+print "answer for element 10: ", answer, "which is ",result
+
+answer = pred[26]
+if(answer==1):
+	result = "Chris"
+else:
+	result = "Sara"
+print "answer for element 26: ", answer, "which is ",result
+
+answer = pred[50]
+if(answer==1):
+	result = "Chris"
+else:
+	result = "Sara"
+print "answer for element 50: ", answer, "which is ",result
+
+label0_count=0
+label1_count=0
+for i in xrange(1,len(pred)):
+	if (pred[i]==1):
+		label1_count +=1
+	else:
+		label0_count +=1
+
+print "Label 0 for Sara count= ", label0_count, "Label 1 for Chris count= ", label1_count
+
+
 
 # prettyPicture(clf,features_test,labels_test)
 # plt.show()
